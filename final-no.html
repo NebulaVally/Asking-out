@@ -26,13 +26,65 @@
         .emoji { font-size: 65px; margin-bottom: 20px; }
         h1 { font-size: 1.8rem; color: #2c3e50; margin-bottom: 15px; }
         p { font-size: 1.1rem; color: #555; line-height: 1.6; }
+        .broken-heart {
+            position: fixed;
+            top: -50px;
+            z-index: 9999;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(115vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="card">
-        <div class="emoji">🌸✨</div>
-        <h1>I Completely Understand</h1>
-        <p>Thank you for being direct and honest with me. I appreciate you so much and value our connection regardless. No awkwardness—just good vibes!</p>
+        <div class="emoji">💔😓</div>
+        <h1>This was Always An Option</h1>
+        <p>Thank you for being direct and honest with me. I appreciate you so much and value our connection regardless. I hope this doesn't change how we are with each other; at least I know now...</p>
     </div>
+
+    <script>
+        const brokenHearts = ['💔', '🥀', '❤️‍🩹', '💔'];
+
+        function spawnBrokenHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'broken-heart';
+            heart.innerText = brokenHearts[Math.floor(Math.random() * brokenHearts.length)];
+            
+            // Random horizontal position and size
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.floor(Math.random() * 20 + 24) + 'px'; // 24px to 44px
+            
+            // Random fall duration (2s to 3.5s)
+            const duration = Math.random() * 1.5 + 2;
+            heart.style.animationDuration = duration + 's';
+
+            document.body.appendChild(heart);
+
+            // Clean up element after animation finishes
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+
+        // Start broken heart rain immediately on page load (spawns every 120ms)
+        const rainInterval = setInterval(spawnBrokenHeart, 120);
+
+        // Stop generating NEW hearts after 4.5 seconds
+        setTimeout(() => {
+            clearInterval(rainInterval);
+        }, 4500);
+    </script>
 </body>
 </html>
