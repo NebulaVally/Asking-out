@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are you sure? 🥺</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 90%;
+        }
+        .emoji {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 26px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .btn-reconsider {
+            background-color: #ff4757;
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
+        }
+        .btn-reconsider:hover {
+            transform: scale(1.05);
+            background-color: #ff6b81;
+        }
+        .btn-sure {
+            background-color: #e0e0e0;
+            color: #555;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        .btn-sure:hover {
+            transform: scale(1.05);
+            background-color: #d6d6d6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="emoji">🥺</div>
+        <h1>Are you completely sure?</h1>
+        <p>No pressure at all! Take your time, or let me know if your answer is final.</p>
+
+        <div class="btn-container">
+            <a href="/" class="btn btn-reconsider">Reconsider? ❤️</a>
+            <a href="/final-no" class="btn btn-sure">I'm sure</a>
+        </div>
+    </div>
+
+</body>
+</html>
