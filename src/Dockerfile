@@ -1,12 +1,17 @@
-# Step 1: Build the Maven project using Java 17
+# Build Stage
 FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
-COPY . .
+
+# Copy pom.xml and source code into container
+COPY pom.xml .
+COPY src ./src
+
+# Build runnable JAR
 RUN mvn clean package -DskipTests
 
-# Step 2: Run the Spring Boot app
+# Run Stage
 FROM eclipse-temurin:17-jre
 WORKDIR /app
-COPY --from=build /app/target/askout-1.0.0.jar app.jar
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
