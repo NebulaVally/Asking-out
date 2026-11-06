@@ -2,9 +2,8 @@
 FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
 
-# Copy pom.xml and source code into container
-COPY pom.xml .
-COPY src ./src
+# Copy all files from repository root into working directory
+COPY . .
 
 # Build runnable JAR
 RUN mvn clean package -DskipTests
